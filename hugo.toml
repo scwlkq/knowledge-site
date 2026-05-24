@@ -1,11 +1,11 @@
-baseURL = 'https://YOUR_GITHUB_USERNAME.github.io/knowledge-site/'
+baseURL = 'https://scwlkq.github.io/knowledge-site/'
 languageCode = 'zh-cn'
-title = '我的知识站'
+title = '我的AI知识站'
 theme = 'PaperMod'
 
 [params]
   description = "个人知识库与技术博客"
-  author = "Your Name"
+  author = "sc"
 
   [params.homeInfoParams]
     Title = "欢迎来到我的知识站"
