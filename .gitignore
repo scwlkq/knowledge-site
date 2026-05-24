@@ -1,0 +1,16 @@
+# Hugo 生成的文件
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+
+# 临时文件
+.hugo_build.lock
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

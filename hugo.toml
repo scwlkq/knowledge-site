@@ -1,0 +1,32 @@
+baseURL = 'https://YOUR_GITHUB_USERNAME.github.io/knowledge-site/'
+languageCode = 'zh-cn'
+title = '我的知识站'
+theme = 'PaperMod'
+
+[params]
+  description = "个人知识库与技术博客"
+  author = "Your Name"
+
+  [params.homeInfoParams]
+    Title = "欢迎来到我的知识站"
+    Content = "记录学习、分享知识"
+
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "文章"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "归档"
+  url = "/archives/"
+  weight = 3
+
+[[menu.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 4
