@@ -2,25 +2,66 @@
 
 基于 Hugo + GitHub Pages 搭建的个人知识库。
 
-## 快速开始
+**在线访问：** https://scwlkq.github.io/knowledge-site/
 
-### 本地预览
+## 项目简介
+
+这是一个使用 Hugo 静态站点生成器和 PaperMod 主题搭建的个人知识站，通过 GitHub Actions 实现自动部署。
+
+**特点：**
+- 📝 Markdown 写作，简单高效
+- 🚀 Git 提交自动发布到线上
+- 🎨 简洁现代的 PaperMod 主题
+- 🏷️ 支持标签和分类管理
+- 📦 完全免费，托管在 GitHub Pages
+
+## 快速使用
+
+### 方式一：使用快捷命令（推荐）
+
+已在 `~/.zshrc` 中配置了快捷命令：
 
 ```bash
+# 1. 创建新文章
+blog-new 文章标题.md
+
+# 2. 编辑文章（使用你喜欢的编辑器）
+# 文章位置：content/posts/文章标题.md
+
+# 3. 本地预览
+blog-serve
+# 访问 http://localhost:1313 查看效果
+
+# 4. 发布到线上
+blog-publish
+```
+
+**其他快捷命令：**
+- `blog` - 快速进入项目目录
+
+**注意：** 新终端需要执行 `source ~/.zshrc` 或重启终端才能使用快捷命令。
+
+### 方式二：使用完整命令
+
+```bash
+# 进入项目目录
+cd /Users/suncong32/Desktop/knowledge-site
+
+# 创建新文章
+hugo new content/posts/文章标题.md
+
+# 本地预览
 hugo server -D
+
+# 发布到线上
+git add .
+git commit -m "更新文章"
+git push
 ```
 
-访问 http://localhost:1313 查看效果。
+## 文章格式
 
-### 写新文章
-
-在 `content/posts/` 目录下创建新的 Markdown 文件：
-
-```bash
-hugo new content/posts/my-new-post.md
-```
-
-或者直接创建 `.md` 文件，添加 Front Matter：
+每篇文章的开头需要包含 Front Matter（元数据）：
 
 ```markdown
 ---
@@ -31,124 +72,75 @@ tags: ["标签1", "标签2"]
 categories: ["分类"]
 ---
 
-文章内容...
+文章内容使用 Markdown 格式...
 ```
 
-### 发布到线上
-
-```bash
-git add .
-git commit -m "添加新文章"
-git push
-```
-
-GitHub Actions 会自动构建并部署到 GitHub Pages。
+**重要：** `draft: false` 文章才会发布到线上。
 
 ## 目录结构
 
 ```
 knowledge-site/
-├── content/          # 文章内容
-│   └── posts/       # 博客文章
-├── themes/          # 主题目录
-│   └── PaperMod/   # PaperMod 主题
+├── content/
+│   ├── posts/          # 博客文章目录
+│   └── archives.md     # 归档页面
+├── themes/
+│   └── PaperMod/       # PaperMod 主题
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml  # 自动部署配置
-├── hugo.toml        # 站点配置
-└── README.md        # 本文件
+├── archetypes/
+│   └── default.md      # 文章模板
+├── hugo.toml           # 站点配置
+├── 写作指南.md         # 详细写作说明
+└── README.md           # 本文件
 ```
 
-## 配置说明
+## 技术栈
 
-### 安装主题
+- **Hugo**: 静态站点生成器
+- **PaperMod**: 简洁现代的 Hugo 主题
+- **GitHub Pages**: 免费静态网站托管
+- **GitHub Actions**: 自动化部署
 
-由于网络原因，主题需要手动安装：
+## 常见问题
 
-```bash
-git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
-```
+### 如何修改站点信息？
 
-### 修改站点信息
-
-编辑 `hugo.toml`：
-
-- `baseURL`: 改为你的 GitHub Pages 地址
+编辑 `hugo.toml` 文件：
 - `title`: 站点标题
-- `params.author`: 你的名字
+- `params.author`: 作者名称
+- `params.homeInfoParams`: 首页欢迎信息
 
-### GitHub Pages 设置
+### 标签和分类如何使用？
 
-1. 在 GitHub 创建仓库（建议命名为 `knowledge-site`）
-2. 推送代码到 GitHub
-3. 进入仓库 Settings → Pages
-4. Source 选择 "GitHub Actions"
-5. 等待部署完成
-
-## 主题文档
-
-PaperMod 主题文档：https://github.com/adityatelange/hugo-PaperMod/wiki
-
-## 常用命令
-
-### 基础命令
-
-```bash
-# 创建新文章
-hugo new content/posts/文章名.md
-
-# 本地预览（包含草稿）
-hugo server -D
-
-# 构建静态文件
-hugo
-
-# 查看 Hugo 版本
-hugo version
+在文章的 Front Matter 中添加：
+```yaml
+tags: ["Hugo", "博客"]
+categories: ["技术"]
 ```
 
-### 快捷命令（已配置）
+标签和分类会自动出现在对应的页面中。
 
-为了提高效率，已在 `~/.zshrc` 中配置了以下快捷命令：
+### 如何查看部署状态？
 
+访问 GitHub Actions 页面：
+https://github.com/scwlkq/knowledge-site/actions
+
+部署通常需要 1-2 分钟完成。
+
+### 快捷命令不生效？
+
+执行以下命令重新加载配置：
 ```bash
-# 进入项目目录
-blog
-
-# 创建新文章（注意：文件名后面要加 .md）
-blog-new 文章名.md
-
-# 启动本地预览
-blog-serve
-
-# 一键发布（add + commit + push）
-blog-publish
+source ~/.zshrc
 ```
 
-**使用示例：**
+或者打开新的终端窗口。
 
-```bash
-# 1. 创建新文章
-blog-new claude常用命令.md
+## 参考资料
 
-# 2. 编辑文章
-# 使用你喜欢的编辑器编辑 content/posts/claude常用命令.md
-
-# 3. 本地预览
-blog-serve
-# 访问 http://localhost:1313 查看效果
-
-# 4. 发布到线上
-blog-publish
-```
-
-**注意事项：**
-- 新终端窗口需要先执行 `source ~/.zshrc` 或重启终端才能使用这些命令
-- `blog-new` 命令会自动在 `content/posts/` 目录下创建文章
-- 文件名建议使用英文或拼音，避免特殊字符
-
-## 注意事项
-
-- 文章的 `draft: false` 才会发布
-- 提交前先本地预览确认效果
-- GitHub Actions 构建需要几分钟
+- [Hugo 官方文档](https://gohugo.io/documentation/)
+- [PaperMod 主题文档](https://github.com/adityatelange/hugo-PaperMod/wiki)
+- [Markdown 语法指南](https://www.markdownguide.org/)
+- [详细写作指南](./写作指南.md)
