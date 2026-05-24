@@ -91,6 +91,8 @@ PaperMod 主题文档：https://github.com/adityatelange/hugo-PaperMod/wiki
 
 ## 常用命令
 
+### 基础命令
+
 ```bash
 # 创建新文章
 hugo new content/posts/文章名.md
@@ -104,6 +106,42 @@ hugo
 # 查看 Hugo 版本
 hugo version
 ```
+
+### 快捷命令（已配置）
+
+为了提高效率，已在 `~/.zshrc` 中配置了以下快捷命令：
+
+```bash
+# 进入项目目录
+blog
+
+# 创建新文章
+blog-new 文章名.md
+
+# 启动本地预览
+blog-serve
+
+# 一键发布（add + commit + push）
+blog-publish
+```
+
+**使用示例：**
+
+```bash
+# 1. 创建新文章
+blog-new my-article.md
+
+# 2. 编辑文章
+# 使用你喜欢的编辑器编辑 content/posts/my-article.md
+
+# 3. 本地预览
+blog-serve
+
+# 4. 发布到线上
+blog-publish
+```
+
+**注意：** 新终端窗口需要先执行 `source ~/.zshrc` 或重启终端才能使用这些命令。
 
 ## 注意事项
 
