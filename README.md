@@ -115,7 +115,7 @@ hugo version
 # 进入项目目录
 blog
 
-# 创建新文章
+# 创建新文章（注意：文件名后面要加 .md）
 blog-new 文章名.md
 
 # 启动本地预览
@@ -129,19 +129,23 @@ blog-publish
 
 ```bash
 # 1. 创建新文章
-blog-new my-article.md
+blog-new claude常用命令.md
 
 # 2. 编辑文章
-# 使用你喜欢的编辑器编辑 content/posts/my-article.md
+# 使用你喜欢的编辑器编辑 content/posts/claude常用命令.md
 
 # 3. 本地预览
 blog-serve
+# 访问 http://localhost:1313 查看效果
 
 # 4. 发布到线上
 blog-publish
 ```
 
-**注意：** 新终端窗口需要先执行 `source ~/.zshrc` 或重启终端才能使用这些命令。
+**注意事项：**
+- 新终端窗口需要先执行 `source ~/.zshrc` 或重启终端才能使用这些命令
+- `blog-new` 命令会自动在 `content/posts/` 目录下创建文章
+- 文件名建议使用英文或拼音，避免特殊字符
 
 ## 注意事项
 
