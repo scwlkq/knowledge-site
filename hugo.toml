@@ -1,5 +1,5 @@
 baseURL = 'https://scwlkq.github.io/knowledge-site/'
-languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
 title = '我的AI知识站'
 theme = 'PaperMod'
 
